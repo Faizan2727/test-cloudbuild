@@ -4,7 +4,8 @@ steps:
     docker build -t us-west2-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1 .
   automapSubstitutions: true
 images:
-- 'us-west2-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1'
+- 'us-central1-docker.pkg.dev/rational-axe-453306-s4/my-faiz-repo-for-docker/quickstart-image:tag1'
+#- 'us-west2-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1'
 options:
   logging: CLOUD_LOGGING_ONLY
 
