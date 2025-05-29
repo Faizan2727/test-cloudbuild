@@ -1,12 +1,14 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  script: |
-    docker build -t us-central1-docker.pkg.dev/rational-axe-453306-s4/my-faiz-repo-for-docker/quickstart-image:tag1 .
-    #docker build -t us-west2-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1 .
-  automapSubstitutions: true
-images:
-- 'us-central1-docker.pkg.dev/rational-axe-453306-s4/my-faiz-repo-for-docker/quickstart-image:tag1'
-#- 'us-west2-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo/quickstart-image:tag1'
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+           'us-central1-docker.pkg.dev/rational-axe-453306-s4/my-faiz-repo-for-docker/quickstart-image:tag1', 
+           '.']
+
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 
+           'us-central1-docker.pkg.dev/rational-axe-453306-s4/my-faiz-repo-for-docker/quickstart-image:tag1']
 options:
   logging: CLOUD_LOGGING_ONLY
 
