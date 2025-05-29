@@ -1,7 +1,15 @@
 steps:
-- name: 'gcr.io/cloud-builders/gcloud'
-  script: |
-    gcloud run deploy cloudrunservice --image us-docker.pkg.dev/cloudrun/container/hello --region us-central1 --platform managed --allow-unauthenticated
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage', 
+           '.']
+
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-faiz-repo-for-docker/myimage']
+
 options:
   logging: CLOUD_LOGGING_ONLY
 
