@@ -8,7 +8,7 @@ steps:
   # Docker Push
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 
-           'us-central1-docker.pkg.dev/rational-axe-453306-s4/my-faiz-repo-for-docker/quickstart-image:tag1']
+           'quickstart-image:tag1']
 options:
   logging: CLOUD_LOGGING_ONLY
 
